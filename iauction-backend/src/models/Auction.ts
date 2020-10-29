@@ -6,9 +6,9 @@ class Auction {
 
   bid: number;
 
-  bidderId: number;
+  bidderId: string;
 
-  auctionItemId: number;
+  auctionItemId: string;
 
   constructor({ bidderId, bid, auctionItemId }: Omit<Auction, 'id'>) {
     this.id = v4();
