@@ -1,5 +1,5 @@
 <h1 align="center">
-    👨🏻‍⚖️ iAuction App
+    👨🏻‍⚖️ iAuction App<br>
     A auction app made with Node and Typescript.
 </h1>
 
