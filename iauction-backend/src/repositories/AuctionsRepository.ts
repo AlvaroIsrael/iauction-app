@@ -6,13 +6,6 @@ interface CreateAuctionDto {
   auctionItemId: string;
 }
 
-interface UpdateAuctionDto {
-  id: string;
-  bid: number;
-  bidderId: string;
-  auctionItemId: string;
-}
-
 class AuctionsRepository {
   private readonly auctions: Auction[];
 
@@ -69,15 +62,6 @@ class AuctionsRepository {
     const auction = new Auction({ bid, auctionItemId, bidderId });
     this.auctions.push(auction);
     return auction;
-  }
-
-  /* Update an auction from the database. */
-  public async update({ id, bid, auctionItemId, bidderId }: UpdateAuctionDto): Promise<void> {
-    const newAuction = new Auction({ bid, auctionItemId, bidderId });
-    const auctionToBeUpdated = this.auctions.findIndex(d => d.id === id);
-    if (auctionToBeUpdated > -1) {
-      this.auctions[auctionToBeUpdated] = newAuction;
-    }
   }
 
   /* Removes an auction from the database. */

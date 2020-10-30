@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import AuctionItemsRepository from '../repositories/AuctionItemsRepository';
-// import ListDriverService from '../services/ListDriverService';
 
 const itemsRouter = Router();
 const auctionItemsRepository = new AuctionItemsRepository();

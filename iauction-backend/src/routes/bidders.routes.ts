@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import BiddersRepository from '../repositories/BiddersRepository';
-// import ListDriverService from '../services/ListDriverService';
 
 const biddersRouter = Router();
 const biddersRepository = new BiddersRepository();
