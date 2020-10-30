@@ -1,4 +1,5 @@
 import AuctionItem from '../models/AuctionItem';
+import Bidder from '../models/Bidder';
 
 interface CreateAuctionItemDto {
   name: string;
@@ -73,6 +74,15 @@ class AuctionItemsRepository {
     if (auctionItemToBeRemoved > -1) {
       this.auctionItems.splice(auctionItemToBeRemoved, 1);
     }
+  }
+
+  /* Find one auction item from the database. */
+  public async findItemNameById(id: string): Promise<string | null> {
+    const foundBidder = this.auctionItems.find(b => b.id === id);
+    if (foundBidder === undefined) {
+      return null;
+    }
+    return foundBidder.name || null;
   }
 }
 

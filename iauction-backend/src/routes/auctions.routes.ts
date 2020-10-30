@@ -1,9 +1,15 @@
 import { Router } from 'express';
 import AuctionsRepository from '../repositories/AuctionsRepository';
 import BidService from '../services/BidService';
+import AuctionsListService from '../services/AuctionsListService';
+import AuctionItemsRepository from '../repositories/AuctionItemsRepository';
+import BiddersRepository from '../repositories/BiddersRepository';
 
 const auctionsRouter = Router();
+const auctionItemsRepository = new AuctionItemsRepository();
 const auctionsRepository = new AuctionsRepository();
+const biddersRepository = new BiddersRepository();
+const auctionsListService = new AuctionsListService(auctionItemsRepository, auctionsRepository, biddersRepository);
 
 /* Creates a new auction. */
 auctionsRouter.post('/bid', async (request, response) => {
@@ -33,7 +39,9 @@ auctionsRouter.delete('/:id', async (request, response) => {
 
 /* List all auctions. */
 auctionsRouter.get('/', async (request, response) => {
-  const auctions = await auctionsRepository.all();
+  const name = request.query.name as string;
+
+  const auctions = await auctionsListService.execute(name);
 
   return response.status(200).json(auctions);
 });

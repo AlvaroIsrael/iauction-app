@@ -74,6 +74,21 @@ class BiddersRepository {
       this.bidders.splice(vdriverToBeRemoved, 1);
     }
   }
+
+  /* Find one bidder from the database. */
+  public async findByName(name: string): Promise<Bidder | null> {
+    const foundBidder = this.bidders.find(b => b.name === name);
+    return foundBidder || null;
+  }
+
+  /* Find one bidder by its id from the database. */
+  public async findBidderById(id: string): Promise<string | null> {
+    const foundBidder = this.bidders.find(b => b.id === id);
+    if (foundBidder === undefined) {
+      return null;
+    }
+    return foundBidder.name || null;
+  }
 }
 
 export default BiddersRepository;

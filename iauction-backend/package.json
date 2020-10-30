@@ -6,16 +6,17 @@
   "scripts": {
     "build": "tsc",
     "dev:server": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "knex:seed": "npx knex seed:run --knexfile knexfile.ts",
+    "knex:migrate": "npx knex migrate:latest --knexfile knexfile.ts",
     "test": "jest --coverage --watchAll=false"
   },
   "dependencies": {
     "@types/cors": "^2.8.8",
-    "@types/date-fns": "^2.6.0",
-    "@types/http-status-codes": "^1.2.0",
     "cors": "^2.8.5",
-    "date-fns": "^2.16.1",
     "express": "^4.17.1",
     "http-status-codes": "^1.4.0",
+    "knex": "^0.21.9",
+    "sqlite3": "^5.0.0",
     "uuid": "^8.3.1"
   },
   "devDependencies": {
