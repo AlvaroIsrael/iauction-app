@@ -1,8 +1,7 @@
 <h1 align="center">
     👨🏻‍⚖️ iAuction App<br>
-    A auction app made with Node and Typescript.
 </h1>
-
+A auction app made with Node and Typescript.
 Made with ❤️ by Alvaro Israel 👏🏻 [Get in touch!](https://www.linkedin.com/in/alvaroisraeldesenvolvedor/)
 
 ## 📌 What is it?
