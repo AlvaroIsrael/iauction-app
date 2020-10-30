@@ -1,5 +1,7 @@
-iAuction-app
-👨🏻‍⚖️ A auction app made with Node and Typescript.
+<h1 align="center">
+    👨🏻‍⚖️ iAuction App
+    A auction app made with Node and Typescript.
+</h1>
 
 Made with ❤️ by Alvaro Israel 👏🏻 [Get in touch!](https://www.linkedin.com/in/alvaroisraeldesenvolvedor/)
 
