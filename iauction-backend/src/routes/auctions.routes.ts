@@ -1,17 +1,25 @@
 import { Router } from 'express';
 import AuctionsRepository from '../repositories/AuctionsRepository';
-// import ListDriverService from '../services/ListDriverService';
+import BidService from '../services/BidService';
 
 const auctionsRouter = Router();
 const auctionsRepository = new AuctionsRepository();
 
 /* Creates a new auction. */
-auctionsRouter.post('/', async (request, response) => {
+auctionsRouter.post('/bid', async (request, response) => {
   const { bid, bidderId, auctionItemId } = request.body;
 
-  const auction = await auctionsRepository.create({ bid, bidderId, auctionItemId });
+  const bidService = new BidService(auctionsRepository);
 
-  return response.status(200).json(auction);
+  try {
+    const auction = await bidService.execute({ bid, bidderId, auctionItemId });
+    return response.status(200).json({
+      message: 'Bet sucessfully made.',
+      auction,
+    });
+  } catch (error) {
+    return response.status(400).json({ message: error.message });
+  }
 });
 
 /* Removes an auction. */

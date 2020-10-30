@@ -58,6 +58,12 @@ class AuctionsRepository {
     return this.auctions;
   }
 
+  /* Return the highest bid on an auction's item. */
+  public async findHighestBid(auctionItemId: string): Promise<number> {
+    const auction = this.auctions.find(item => item.auctionItemId === auctionItemId);
+    return auction === undefined ? 0 : auction.bid;
+  }
+
   /* Adds a new auction to the database. */
   public async create({ bid, auctionItemId, bidderId }: CreateAuctionDto): Promise<Auction> {
     const auction = new Auction({ bid, auctionItemId, bidderId });
