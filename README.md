@@ -1,6 +1,6 @@
 <h1 align="center">
     👨🏻‍⚖️ iAuction App<br>
-    <img  alt="iCar App" width="575" height="721" src="https://github.com/AlvaroIsrael/iauction-app/tree/master/iauction-frontend/src/img/iauction.png"/>
+    <img  alt="iCar App" width="575" height="721" src="https://github.com/AlvaroIsrael/iauction-app/blob/main/iauction-frontend/src/img/iauction.png"/>
 </h1>
 
 ## 📌 What is it?
